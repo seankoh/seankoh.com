@@ -1,0 +1,124 @@
+Sean Koh
+Singaporean
+📞 8280 4642 | ✉️ seankoh2@gmail.com
+
+Availability: Immediate
+
+Profile
+
+Sean is a highly experienced PLC-focused Automation Engineer based in Singapore, with over 20 years of hands-on experience in industrial automation, software, vision systems, and mechanical engineering. He specializes in PLC-controlled manufacturing systems, integrating robots, motors, sensors, pneumatics, and computer vision for high-volume production environments. With a BSc in Mechanical Engineering, Sean brings a practical, system-level approach from design through commissioning and production support.
+
+Key Automation & PLC Skills
+
+PLC Programming (Structured Text – ST)
+
+Industrial Automation & Machine Control
+
+Keyence PLC Systems
+
+Nachi Robot Integration
+
+Stepper / Servo Motors, Sensors & Pneumatics
+
+Control System Migration (Arduino → PLC)
+
+PLC Debugging, Commissioning & Troubleshooting
+
+HMI / GUI Integration
+
+Industrial Networking
+
+Agile Development & Project Execution
+
+ESP32 Development (MicroPython, Wi-Fi, OTA, Edge Control)
+
+Technical Skills
+
+AI Vision & Computer Vision
+
+LabVIEW & Vision Systems
+
+ESP32, MicroPython
+
+Linux / Bash
+
+Docker
+
+Networking Hardware
+
+SolidWorks 3D
+
+SQL / SQLite
+
+TrueNAS
+
+GitHub
+
+JavaScript / Node.js
+
+Proxmox
+
+Clonezilla
+
+ChatGPT
+
+Intel vPro / AMT
+
+Professional Experience
+Epic Medical – PLC Programmer
+
+Aug 2025 – Present
+
+Led migration of machine control systems from Arduino to industrial PLC platforms
+
+Developed and maintained Structured Text (ST) programs for robots, motors, sensors, and pneumatic systems
+
+Performed PLC debugging, commissioning, and fault analysis
+
+Managed defects, changes, and cross-team collaboration using Jira
+
+Molex, Singapore – Senior Vision Engineer
+
+Apr 2017 – Mar 2024
+
+Developed PLC-integrated vision inspection systems for high-volume production
+
+Implemented PLC-to-vision communication and system handshaking
+
+Trained engineers on deployment and support of automation and inspection systems
+
+Served as system analyst for production web applications
+
+Project lead for RFID asset management system
+
+Shimano, Singapore – Senior Production Engineer
+
+Apr 2010 – Mar 2017
+
+Designed and implemented PLC-based automation solutions for manufacturing lines
+
+Led automation integration and equipment upgrades
+
+Improved production efficiency through process automation
+
+Sawmaster, USA – Mechanical Design Engineer
+
+Apr 2005 – Jul 2009
+
+Designed automation-related mechanical systems using SolidWorks
+
+Supported machine build, testing, and production handover
+
+ESP, USA – Mechanical Engineer
+
+Sep 2002 – Mar 2005
+
+Programmed CNC turret punch and milling machines
+
+Prepared BOMs, routings, and production documentation
+
+USDA, USA – Web Designer
+
+Jan 2000 – Dec 2002
+
+Designed websites and maintained servers
