@@ -12,6 +12,7 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+document.querySelector('#fallback-face').hidden = true;
 
 const face = new THREE.Group();
 scene.add(face);
