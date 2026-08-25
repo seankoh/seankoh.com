@@ -8271,8 +8271,7 @@ class Vector4 {
 
 		}
 
-		// as we have reached here there are
- no singularities so we can handle normally
+		// as we have reached here there are no singularities so we can handle normally
 
 		let s = Math.sqrt( ( m32 - m23 ) * ( m32 - m23 ) +
 			( m13 - m31 ) * ( m13 - m31 ) +
@@ -15392,8 +15391,7 @@ class Color {
 	/**
 	 * Constructs a new color.
 	 *
-	 * Note that standard method of specifying color in three.js is with a hexade
-cimal triplet,
+	 * Note that standard method of specifying color in three.js is with a hexadecimal triplet,
 	 * and that method is used throughout the rest of the documentation.
 	 *
 	 * @param {(number|string|Color)} [r] - The red component of the color. If `g` and `b` are
@@ -22755,8 +22753,7 @@ class WebXRController {
 
 				if ( inputPose !== null ) {
 
-					targetRay.matri
-x.fromArray( inputPose.transform.matrix );
+					targetRay.matrix.fromArray( inputPose.transform.matrix );
 					targetRay.matrix.decompose( targetRay.position, targetRay.rotation, targetRay.scale );
 					targetRay.matrixWorldNeedsUpdate = true;
 
@@ -22862,7 +22859,6 @@ class FogExp2 {
 
 		/**
 		 * This flag can be used for type testing.
-		 *
 		 * @type {boolean}
 		 * @readonly
 		 * @default true
@@ -37723,8 +37719,7 @@ class WireframeGeometry extends BufferGeometry {
 			// buffer
 
 			const vertices = [];
-			con
-st edges = new Set();
+			const edges = new Set();
 
 			// helper variables
 
@@ -45339,8 +45334,7 @@ class LightShadow {
 			shadowMatrix.set(
 				0.5, 0.0, 0.0, 0.5,
 				0.0, 0.5, 0.0, 0.5,
-				0.0, 0.0, 1.0, 0
-.0,
+				0.0, 0.0, 1.0, 0.0,
 				0.0, 0.0, 0.0, 1.0
 			);
 
@@ -53025,8 +53019,7 @@ class AnimationAction {
 
 			if ( interpolant !== null ) {
 
-				const inte
-rpolantValue = interpolant.evaluate( time )[ 0 ];
+				const interpolantValue = interpolant.evaluate( time )[ 0 ];
 
 				weight *= interpolantValue;
 
