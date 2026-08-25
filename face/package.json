@@ -1,0 +1,9 @@
+{
+  "name": "minimal-3d-face",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal browser-based Three.js facial scene",
+  "scripts": {
+    "start": "powershell -ExecutionPolicy Bypass -File .\\serve.ps1"
+  }
+}

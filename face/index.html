@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minimal 3D Face</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; overflow: hidden; background: #e8edf2; }
+      #fps {
+        position: fixed;
+        top: 12px;
+        left: 12px;
+        padding: 6px 9px;
+        border-radius: 4px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        font: 14px/1 monospace;
+      }
+      #sweep-toggle {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        padding: 8px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-radius: 8px;
+        background: rgba(20, 27, 36, 0.84);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+        color: white;
+        cursor: pointer;
+        font: 600 13px/1 system-ui, sans-serif;
+        backdrop-filter: blur(8px);
+      }
+      #sweep-toggle:hover { background: rgba(36, 48, 62, 0.92); }
+      #sweep-toggle[aria-pressed="true"] { background: #8a3c32; }
+      #controls {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        width: 260px;
+        min-height: 150px;
+        padding: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 14px;
+        background: rgba(20, 27, 36, 0.84);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+        color: white;
+        font: 13px/1.35 system-ui, sans-serif;
+        backdrop-filter: blur(8px);
+        transition: width 160ms ease, min-height 160ms ease, padding 160ms ease, border-radius 160ms ease;
+      }
+      #controls h2 { margin: 0 32px 10px 0; font-size: 14px; }
+      #controls-toggle {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 26px;
+        height: 26px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.16);
+        color: white;
+        cursor: pointer;
+        font: 18px/1 system-ui, sans-serif;
+      }
+      #controls-toggle:hover { background: rgba(255, 255, 255, 0.28); }
+      .legend-content { display: flex; align-items: center; gap: 16px; }
+      .mouse-graphic {
+        position: relative;
+        flex: 0 0 auto;
+        width: 58px;
+        height: 90px;
+        overflow: hidden;
+        border: 2px solid rgba(255, 255, 255, 0.9);
+        border-radius: 29px 29px 24px 24px;
+      }
+      .mouse-graphic::after {
+        content: '';
+        position: absolute;
+        top: 34px;
+        left: 0;
+        right: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.45);
+      }
+      .mouse-middle {
+        position: absolute;
+        z-index: 1;
+        top: 9px;
+        left: 24px;
+        width: 8px;
+        height: 20px;
+        border: 1px solid white;
+        border-radius: 5px;
+        background: #49a6ff;
+      }
+      .mouse-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 27px;
+        height: 35px;
+        border-left: 1px solid rgba(255, 255, 255, 0.45);
+        background: rgba(255, 160, 64, 0.65);
+      }
+      .legend-content ul { margin: 0; padding: 0; list-style: none; }
+      .legend-content li + li { margin-top: 7px; }
+      .control-key {
+        display: inline-block;
+        min-width: 52px;
+        color: #9ed0ff;
+        font-weight: 700;
+      }
+      #controls.minimized {
+        width: 26px;
+        min-height: 26px;
+        padding: 0;
+        border-radius: 50%;
+      }
+      #controls.minimized h2,
+      #controls.minimized .legend-content { display: none; }
+      #controls.minimized #controls-toggle {
+        inset: 0;
+        background: #26384a;
+        font-size: 14px;
+      }
+      canvas { display: block; }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="fps">FPS: --</div>
+    <button id="sweep-toggle" type="button" aria-pressed="false">Stop sweep</button>
+    <aside id="controls" aria-label="Mouse controls">
+      <button id="controls-toggle" type="button" aria-label="Minimize mouse controls" aria-expanded="true">−</button>
+      <h2>Mouse controls</h2>
+      <div class="legend-content">
+        <div class="mouse-graphic" aria-hidden="true">
+          <span class="mouse-right"></span>
+          <span class="mouse-middle"></span>
+        </div>
+        <ul>
+          <li><span class="control-key">Wheel</span> Zoom</li>
+          <li><span class="control-key">Middle</span> Pan</li>
+          <li><span class="control-key">Right</span> Orbit</li>
+        </ul>
+      </div>
+    </aside>
+    <script>
+      // Reload shortly after any project file changes, so no manual refresh is needed.
+      let projectVersion;
+      async function reloadWhenUpdated() {
+        try {
+          const response = await fetch('/__version', { cache: 'no-store' });
+          const nextVersion = await response.text();
+          if (projectVersion && nextVersion !== projectVersion) location.reload();
+          projectVersion = nextVersion;
+        } catch {
+          // Keep trying while the local development server restarts.
+        }
+      }
+      reloadWhenUpdated();
+      setInterval(reloadWhenUpdated, 500);
+
+      const controls = document.querySelector('#controls');
+      const controlsToggle = document.querySelector('#controls-toggle');
+      controlsToggle.addEventListener('click', () => {
+        const minimized = controls.classList.toggle('minimized');
+        controlsToggle.textContent = minimized ? '•' : '−';
+        controlsToggle.setAttribute('aria-expanded', String(!minimized));
+        controlsToggle.setAttribute('aria-label', minimized ? 'Show mouse controls' : 'Minimize mouse controls');
+      });
+    </script>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
