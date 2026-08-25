@@ -857,7 +857,7 @@ const RGBA_S3TC_DXT3_Format = 33778;
 const RGBA_S3TC_DXT5_Format = 33779;
 
 /**
- * PVRTC RGB compression in 4-bit mode. One block for each 4×4 pixels.
+ * PVRTC RGB compression in 4-bit mode. One block for each 4Ã—4 pixels.
  *
  * @type {number}
  * @constant
@@ -865,7 +865,7 @@ const RGBA_S3TC_DXT5_Format = 33779;
 const RGB_PVRTC_4BPPV1_Format = 35840;
 
 /**
- * PVRTC RGB compression in 2-bit mode. One block for each 8×4 pixels.
+ * PVRTC RGB compression in 2-bit mode. One block for each 8Ã—4 pixels.
  *
  * @type {number}
  * @constant
@@ -873,7 +873,7 @@ const RGB_PVRTC_4BPPV1_Format = 35840;
 const RGB_PVRTC_2BPPV1_Format = 35841;
 
 /**
- * PVRTC RGBA compression in 4-bit mode. One block for each 4×4 pixels.
+ * PVRTC RGBA compression in 4-bit mode. One block for each 4Ã—4 pixels.
  *
  * @type {number}
  * @constant
@@ -881,7 +881,7 @@ const RGB_PVRTC_2BPPV1_Format = 35841;
 const RGBA_PVRTC_4BPPV1_Format = 35842;
 
 /**
- * PVRTC RGBA compression in 2-bit mode. One block for each 8×4 pixels.
+ * PVRTC RGBA compression in 2-bit mode. One block for each 8Ã—4 pixels.
  *
  * @type {number}
  * @constant
@@ -8271,7 +8271,8 @@ class Vector4 {
 
 		}
 
-		// as we have reached here there are no singularities so we can handle normally
+		// as we have reached here there are
+ no singularities so we can handle normally
 
 		let s = Math.sqrt( ( m32 - m23 ) * ( m32 - m23 ) +
 			( m13 - m31 ) * ( m13 - m31 ) +
@@ -15391,7 +15392,8 @@ class Color {
 	/**
 	 * Constructs a new color.
 	 *
-	 * Note that standard method of specifying color in three.js is with a hexadecimal triplet,
+	 * Note that standard method of specifying color in three.js is with a hexade
+cimal triplet,
 	 * and that method is used throughout the rest of the documentation.
 	 *
 	 * @param {(number|string|Color)} [r] - The red component of the color. If `g` and `b` are
@@ -18885,7 +18887,7 @@ class BufferGeometry extends EventDispatcher {
 		 *
 		 * Use `addGroup()` and `clearGroups()` to edit groups, rather than modifying this array directly.
 		 *
-		 * Every vertex and index must belong to exactly one group — groups must not share vertices or
+		 * Every vertex and index must belong to exactly one group â€” groups must not share vertices or
 		 * indices, and must not leave vertices or indices unused.
 		 *
 		 * @type {Array<Object>}
@@ -22753,7 +22755,8 @@ class WebXRController {
 
 				if ( inputPose !== null ) {
 
-					targetRay.matrix.fromArray( inputPose.transform.matrix );
+					targetRay.matri
+x.fromArray( inputPose.transform.matrix );
 					targetRay.matrix.decompose( targetRay.position, targetRay.rotation, targetRay.scale );
 					targetRay.matrixWorldNeedsUpdate = true;
 
@@ -29966,7 +29969,8 @@ class DepthTexture extends Texture {
 		/**
 		 * This flag can be used for type testing.
 		 *
-		 * @type {boolean}
+		 
+* @type {boolean}
 		 * @readonly
 		 * @default true
 		 */
@@ -31186,21 +31190,21 @@ class DodecahedronGeometry extends PolyhedronGeometry {
 
 		const vertices = [
 
-			// (±1, ±1, ±1)
+			// (Â±1, Â±1, Â±1)
 			-1, -1, -1,	-1, -1, 1,
 			-1, 1, -1, -1, 1, 1,
 			1, -1, -1, 1, -1, 1,
 			1, 1, -1, 1, 1, 1,
 
-			// (0, ±1/φ, ±φ)
+			// (0, Â±1/Ï†, Â±Ï†)
 			0, - r, - t, 0, - r, t,
 			0, r, - t, 0, r, t,
 
-			// (±1/φ, ±φ, 0)
+			// (Â±1/Ï†, Â±Ï†, 0)
 			- r, - t, 0, - r, t, 0,
 			r, - t, 0, r, t, 0,
 
-			// (±φ, 0, ±1/φ)
+			// (Â±Ï†, 0, Â±1/Ï†)
 			- t, 0, - r, t, 0, - r,
 			- t, 0, r, t, 0, r
 		];
@@ -37719,7 +37723,8 @@ class WireframeGeometry extends BufferGeometry {
 			// buffer
 
 			const vertices = [];
-			const edges = new Set();
+			con
+st edges = new Set();
 
 			// helper variables
 
@@ -38417,7 +38422,7 @@ class MeshStandardMaterial extends Material {
  *
  * - Anisotropy: Ability to represent the anisotropic property of materials
  * as observable with brushed metals.
- * - Clearcoat: Some materials — like car paints, carbon fiber, and wet surfaces — require
+ * - Clearcoat: Some materials â€” like car paints, carbon fiber, and wet surfaces â€” require
  * a clear, reflective layer on top of another layer that may be irregular or rough.
  * Clearcoat approximates this effect, without the need for a separate transparent surface.
  * - Iridescence: Allows to render the effect where hue varies  depending on the viewing
@@ -45334,7 +45339,8 @@ class LightShadow {
 			shadowMatrix.set(
 				0.5, 0.0, 0.0, 0.5,
 				0.0, 0.5, 0.0, 0.5,
-				0.0, 0.0, 1.0, 0.0,
+				0.0, 0.0, 1.0, 0
+.0,
 				0.0, 0.0, 0.0, 1.0
 			);
 
@@ -45664,7 +45670,7 @@ class SpotLight extends Light {
 	get power() {
 
 		// compute the light's luminous power (in lumens) from its intensity (in candela)
-		// by convention for a spotlight, luminous power (lm) = π * luminous intensity (cd)
+		// by convention for a spotlight, luminous power (lm) = Ï€ * luminous intensity (cd)
 		return this.intensity * Math.PI;
 
 	}
@@ -45889,7 +45895,7 @@ class PointLight extends Light {
 	get power() {
 
 		// compute the light's luminous power (in lumens) from its intensity (in candela)
-		// for an isotropic light source, luminous power (lm) = 4 π luminous intensity (cd)
+		// for an isotropic light source, luminous power (lm) = 4 Ï€ luminous intensity (cd)
 		return this.intensity * 4 * Math.PI;
 
 	}
@@ -46562,19 +46568,19 @@ class SphericalHarmonics3 {
 		const coeff = this.coefficients;
 
 		// band 0
-		target.copy( coeff[ 0 ] ).multiplyScalar( 0.886227 ); // π * 0.282095
+		target.copy( coeff[ 0 ] ).multiplyScalar( 0.886227 ); // Ï€ * 0.282095
 
 		// band 1
-		target.addScaledVector( coeff[ 1 ], 2.0 * 0.511664 * y ); // ( 2 * π / 3 ) * 0.488603
+		target.addScaledVector( coeff[ 1 ], 2.0 * 0.511664 * y ); // ( 2 * Ï€ / 3 ) * 0.488603
 		target.addScaledVector( coeff[ 2 ], 2.0 * 0.511664 * z );
 		target.addScaledVector( coeff[ 3 ], 2.0 * 0.511664 * x );
 
 		// band 2
-		target.addScaledVector( coeff[ 4 ], 2.0 * 0.429043 * x * y ); // ( π / 4 ) * 1.092548
+		target.addScaledVector( coeff[ 4 ], 2.0 * 0.429043 * x * y ); // ( Ï€ / 4 ) * 1.092548
 		target.addScaledVector( coeff[ 5 ], 2.0 * 0.429043 * y * z );
-		target.addScaledVector( coeff[ 6 ], 0.743125 * z * z - 0.247708 ); // ( π / 4 ) * 0.315392 * 3
+		target.addScaledVector( coeff[ 6 ], 0.743125 * z * z - 0.247708 ); // ( Ï€ / 4 ) * 0.315392 * 3
 		target.addScaledVector( coeff[ 7 ], 2.0 * 0.429043 * x * z );
-		target.addScaledVector( coeff[ 8 ], 0.429043 * ( x * x - y * y ) ); // ( π / 4 ) * 0.546274
+		target.addScaledVector( coeff[ 8 ], 0.429043 * ( x * x - y * y ) ); // ( Ï€ / 4 ) * 0.546274
 
 		return target;
 
@@ -50556,7 +50562,7 @@ class PositionalAudio extends Audio {
 
 	/**
 	 * Defines the reference distance for reducing volume as the audio source moves
-	 * further from the listener – i.e. the distance at which the volume reduction
+	 * further from the listener â€“ i.e. the distance at which the volume reduction
 	 * starts taking effect.
 	 *
 	 * @param {number} value - The reference distance to set.
@@ -53019,7 +53025,8 @@ class AnimationAction {
 
 			if ( interpolant !== null ) {
 
-				const interpolantValue = interpolant.evaluate( time )[ 0 ];
+				const inte
+rpolantValue = interpolant.evaluate( time )[ 0 ];
 
 				weight *= interpolantValue;
 
@@ -58771,3 +58778,4 @@ if ( typeof window !== 'undefined' ) {
 }
 
 export { ACESFilmicToneMapping, AddEquation, AddOperation, AdditiveAnimationBlendMode, AdditiveBlending, AgXToneMapping, AlphaFormat, AlwaysCompare, AlwaysDepth, AlwaysStencilFunc, AmbientLight, AnimationAction, AnimationClip, AnimationLoader, AnimationMixer, AnimationObjectGroup, AnimationUtils, ArcCurve, ArrayCamera, ArrowHelper, AttachedBindMode, Audio, AudioAnalyser, AudioContext, AudioListener, AudioLoader, AxesHelper, BackSide, BasicDepthPacking, BasicShadowMap, BatchedMesh, Bone, BooleanKeyframeTrack, Box2, Box3, Box3Helper, BoxGeometry, BoxHelper, BufferAttribute, BufferGeometry, BufferGeometryLoader, ByteType, Cache, Camera, CameraHelper, CanvasTexture, CapsuleGeometry, CatmullRomCurve3, CineonToneMapping, CircleGeometry, ClampToEdgeWrapping, Clock, Color, ColorKeyframeTrack, ColorManagement, CompressedArrayTexture, CompressedCubeTexture, CompressedTexture, CompressedTextureLoader, ConeGeometry, ConstantAlphaFactor, ConstantColorFactor, Controls, CubeCamera, CubeReflectionMapping, CubeRefractionMapping, CubeTexture, CubeTextureLoader, CubeUVReflectionMapping, CubicBezierCurve, CubicBezierCurve3, CubicInterpolant, CullFaceBack, CullFaceFront, CullFaceFrontBack, CullFaceNone, Curve, CurvePath, CustomBlending, CustomToneMapping, CylinderGeometry, Cylindrical, Data3DTexture, DataArrayTexture, DataTexture, DataTextureLoader, DataUtils, DecrementStencilOp, DecrementWrapStencilOp, DefaultLoadingManager, DepthFormat, DepthStencilFormat, DepthTexture, DetachedBindMode, DirectionalLight, DirectionalLightHelper, DiscreteInterpolant, DodecahedronGeometry, DoubleSide, DstAlphaFactor, DstColorFactor, DynamicCopyUsage, DynamicDrawUsage, DynamicReadUsage, EdgesGeometry, EllipseCurve, EqualCompare, EqualDepth, EqualStencilFunc, EquirectangularReflectionMapping, EquirectangularRefractionMapping, Euler, EventDispatcher, ExternalTexture, ExtrudeGeometry, FileLoader, Float16BufferAttribute, Float32BufferAttribute, FloatType, Fog, FogExp2, FramebufferTexture, FrontSide, Frustum, FrustumArray, GLBufferAttribute, GLSL1, GLSL3, GreaterCompare, GreaterDepth, GreaterEqualCompare, GreaterEqualDepth, GreaterEqualStencilFunc, GreaterStencilFunc, GridHelper, Group, HalfFloatType, HemisphereLight, HemisphereLightHelper, IcosahedronGeometry, ImageBitmapLoader, ImageLoader, ImageUtils, IncrementStencilOp, IncrementWrapStencilOp, InstancedBufferAttribute, InstancedBufferGeometry, InstancedInterleavedBuffer, InstancedMesh, Int16BufferAttribute, Int32BufferAttribute, Int8BufferAttribute, IntType, InterleavedBuffer, InterleavedBufferAttribute, Interpolant, InterpolateDiscrete, InterpolateLinear, InterpolateSmooth, InterpolationSamplingMode, InterpolationSamplingType, InvertStencilOp, KeepStencilOp, KeyframeTrack, LOD, LatheGeometry, Layers, LessCompare, LessDepth, LessEqualCompare, LessEqualDepth, LessEqualStencilFunc, LessStencilFunc, Light, LightProbe, Line, Line3, LineBasicMaterial, LineCurve, LineCurve3, LineDashedMaterial, LineLoop, LineSegments, LinearFilter, LinearInterpolant, LinearMipMapLinearFilter, LinearMipMapNearestFilter, LinearMipmapLinearFilter, LinearMipmapNearestFilter, LinearSRGBColorSpace, LinearToneMapping, LinearTransfer, Loader, LoaderUtils, LoadingManager, LoopOnce, LoopPingPong, LoopRepeat, MOUSE, Material, MaterialLoader, MathUtils, Matrix2, Matrix3, Matrix4, MaxEquation, Mesh, MeshBasicMaterial, MeshDepthMaterial, MeshDistanceMaterial, MeshLambertMaterial, MeshMatcapMaterial, MeshNormalMaterial, MeshPhongMaterial, MeshPhysicalMaterial, MeshStandardMaterial, MeshToonMaterial, MinEquation, MirroredRepeatWrapping, MixOperation, MultiplyBlending, MultiplyOperation, NearestFilter, NearestMipMapLinearFilter, NearestMipMapNearestFilter, NearestMipmapLinearFilter, NearestMipmapNearestFilter, NeutralToneMapping, NeverCompare, NeverDepth, NeverStencilFunc, NoBlending, NoColorSpace, NoToneMapping, NormalAnimationBlendMode, NormalBlending, NotEqualCompare, NotEqualDepth, NotEqualStencilFunc, NumberKeyframeTrack, Object3D, ObjectLoader, ObjectSpaceNormalMap, OctahedronGeometry, OneFactor, OneMinusConstantAlphaFactor, OneMinusConstantColorFactor, OneMinusDstAlphaFactor, OneMinusDstColorFactor, OneMinusSrcAlphaFactor, OneMinusSrcColorFactor, OrthographicCamera, PCFShadowMap, PCFSoftShadowMap, Path, PerspectiveCamera, Plane, PlaneGeometry, PlaneHelper, PointLight, PointLightHelper, Points, PointsMaterial, PolarGridHelper, PolyhedronGeometry, PositionalAudio, PropertyBinding, PropertyMixer, QuadraticBezierCurve, QuadraticBezierCurve3, Quaternion, QuaternionKeyframeTrack, QuaternionLinearInterpolant, RAD2DEG, RED_GREEN_RGTC2_Format, RED_RGTC1_Format, REVISION, RGBADepthPacking, RGBAFormat, RGBAIntegerFormat, RGBA_ASTC_10x10_Format, RGBA_ASTC_10x5_Format, RGBA_ASTC_10x6_Format, RGBA_ASTC_10x8_Format, RGBA_ASTC_12x10_Format, RGBA_ASTC_12x12_Format, RGBA_ASTC_4x4_Format, RGBA_ASTC_5x4_Format, RGBA_ASTC_5x5_Format, RGBA_ASTC_6x5_Format, RGBA_ASTC_6x6_Format, RGBA_ASTC_8x5_Format, RGBA_ASTC_8x6_Format, RGBA_ASTC_8x8_Format, RGBA_BPTC_Format, RGBA_ETC2_EAC_Format, RGBA_PVRTC_2BPPV1_Format, RGBA_PVRTC_4BPPV1_Format, RGBA_S3TC_DXT1_Format, RGBA_S3TC_DXT3_Format, RGBA_S3TC_DXT5_Format, RGBDepthPacking, RGBFormat, RGBIntegerFormat, RGB_BPTC_SIGNED_Format, RGB_BPTC_UNSIGNED_Format, RGB_ETC1_Format, RGB_ETC2_Format, RGB_PVRTC_2BPPV1_Format, RGB_PVRTC_4BPPV1_Format, RGB_S3TC_DXT1_Format, RGDepthPacking, RGFormat, RGIntegerFormat, RawShaderMaterial, Ray, Raycaster, RectAreaLight, RedFormat, RedIntegerFormat, ReinhardToneMapping, RenderTarget, RenderTarget3D, RepeatWrapping, ReplaceStencilOp, ReverseSubtractEquation, RingGeometry, SIGNED_RED_GREEN_RGTC2_Format, SIGNED_RED_RGTC1_Format, SRGBColorSpace, SRGBTransfer, Scene, ShaderMaterial, ShadowMaterial, Shape, ShapeGeometry, ShapePath, ShapeUtils, ShortType, Skeleton, SkeletonHelper, SkinnedMesh, Source, Sphere, SphereGeometry, Spherical, SphericalHarmonics3, SplineCurve, SpotLight, SpotLightHelper, Sprite, SpriteMaterial, SrcAlphaFactor, SrcAlphaSaturateFactor, SrcColorFactor, StaticCopyUsage, StaticDrawUsage, StaticReadUsage, StereoCamera, StreamCopyUsage, StreamDrawUsage, StreamReadUsage, StringKeyframeTrack, SubtractEquation, SubtractiveBlending, TOUCH, TangentSpaceNormalMap, TetrahedronGeometry, Texture, TextureLoader, TextureUtils, Timer, TimestampQuery, TorusGeometry, TorusKnotGeometry, Triangle, TriangleFanDrawMode, TriangleStripDrawMode, TrianglesDrawMode, TubeGeometry, UVMapping, Uint16BufferAttribute, Uint32BufferAttribute, Uint8BufferAttribute, Uint8ClampedBufferAttribute, Uniform, UniformsGroup, UniformsUtils, UnsignedByteType, UnsignedInt101111Type, UnsignedInt248Type, UnsignedInt5999Type, UnsignedIntType, UnsignedShort4444Type, UnsignedShort5551Type, UnsignedShortType, VSMShadowMap, Vector2, Vector3, Vector4, VectorKeyframeTrack, VideoFrameTexture, VideoTexture, WebGL3DRenderTarget, WebGLArrayRenderTarget, WebGLCoordinateSystem, WebGLCubeRenderTarget, WebGLRenderTarget, WebGPUCoordinateSystem, WebXRController, WireframeGeometry, WrapAroundEnding, ZeroCurvatureEnding, ZeroFactor, ZeroSlopeEnding, ZeroStencilOp, arrayNeedsUint32, cloneUniforms, createCanvasElement, createElementNS, getByteLength, getUnlitUniformColorSpace, mergeUniforms, probeAsync, warnOnce };
+
